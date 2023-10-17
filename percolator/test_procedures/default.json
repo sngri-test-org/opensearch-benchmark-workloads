@@ -125,7 +125,7 @@
           "operation": "delete-index"
         },
         {
-          "name": "restore-from-snapshot"
+          "name": "restore-from-snapshot",
           "operation": {
             "operation-type": "restore-snapshot",
             "repository": "benchmark-workloads-repo",
