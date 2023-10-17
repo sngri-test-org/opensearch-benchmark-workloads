@@ -125,11 +125,26 @@
           "operation": "delete-index"
         },
         {
+      "name": "register-snapshot-repository",
+      "operation": {
+        "operation-type": "create-snapshot-repository",
+        "repository": {{ snapshot_repo_name | tojson }},
+        "body": {
+          "type": "s3",
+          "settings": {
+              "bucket": "test-regular-snapshot",
+              "region": "eu-west-1",
+              "base_path": "percolator"
+              }
+            }
+          }
+        },
+        {
           "name": "restore-from-snapshot",
           "operation": {
             "operation-type": "restore-snapshot",
-            "repository": "benchmark-workloads-repo",
-            "snapshot": "percolator",
+            "repository": {{ snapshot_repo_name | tojson }},
+            "snapshot": {{ snapshot_name | tojson }},
             "wait-for-completion": false
 
           }
